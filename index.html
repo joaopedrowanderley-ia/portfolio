@@ -1,172 +1,242 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JPW IA</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    #servicos {
-      background: #f9f9f9;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      margin-bottom: 20px;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>JPW IA</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #fff;
+  }
 
-    .servico-card {
-      background: white;
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.05);
-      margin-bottom: 15px;
-    }
+  header {
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(0,0,0,0.3);
+  }
 
-    .servico-card h3 {
-      margin-top: 0;
-      color: #0077cc;
-    }
+  header h1 {
+    font-size: 3em;
+    margin: 0;
+    color: #00d4ff;
+  }
 
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: url('fundo.png') no-repeat center center fixed;
-      background-size: cover;
-      color: #333;
-      line-height: 1.6;
-    }
+  header p {
+    margin: 5px 0;
+    font-weight: 300;
+  }
 
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.6); /* fundo escuro */
-      z-index: -1;
-    }
+  main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+  }
 
-    header {
-      background-color: #0077cc;
-      color: white;
-      text-align: center;
-      padding: 20px 20px; /* Menor altura */
-      border-radius: 12px;
-      max-width: 800px;
-      margin: 40px auto;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
+  h2 {
+    text-align: center;
+    color: #00d4ff;
+    margin-bottom: 20px;
+  }
 
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-    }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
 
-    header p {
-      margin: 8px 0;
-      font-weight: 300;
-    }
+  .card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s, background 0.3s;
+    backdrop-filter: blur(10px);
+  }
 
-    main {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
+  .card:hover {
+    transform: translateY(-5px);
+    background: rgba(0, 212, 255, 0.15);
+  }
 
-    section {
-      margin-bottom: 40px;
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-    }
+  .card img {
+    width: 60px;
+    margin-bottom: 15px;
+  }
 
-    h2 {
-      color: #0077cc;
-      margin-top: 0;
-    }
+  .card h3 {
+    margin: 0;
+    color: #00d4ff;
+  }
 
-    ul {
-      padding-left: 20px;
-    }
+  a {
+    color: #00d4ff;
+    text-decoration: none;
+  }
 
-    a {
-      color: #0077cc;
-      text-decoration: none;
-      font-weight: 500;
-    }
+  footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+    background: rgba(0,0,0,0.3);
+  }
 
-    a:hover {
-      text-decoration: underline;
-    }
+  .sobre {
+    margin-top: 50px;
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 10px;
+  }
 
-    .social-links {
-      margin-top: 10px;
-    }
+    .whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    transition: transform 0.3s;
+  }
 
-    .social-links a {
-      margin-right: 15px;
-    }
+  .whatsapp-float:hover {
+    transform: scale(1.1);
+  }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #777;
-      font-size: 0.9em;
-    }
+  .whatsapp-float img {
+    width: 35px;
+    height: 35px;
+  }
+  .whatsapp-label {
+  position: fixed;
+  bottom: 30px;
+  right: 90px;
+  background: #25D366;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  z-index: 99999;
+  }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2em;
-      }
-    }
-  </style>
+</style>
 </head>
 <body>
 
-  <header>
-    <h1>JPW IA</h1>
-    <p><strong>Automações, Soluções e Inteligência Artificial</strong></p>
-    <p>João Pedro da Silva Wanderley – Especialista em IA | Dados </p>
-  </header>
+<a href="https://wa.me/5583996334717?text=Ol%C3%A1%20Jo%C3%A3o%2C%20vi%20seu%20portf%C3%B3lio%20e%20tenho%20interesse%20em%20suas%20solu%C3%A7%C3%B5es.%20Pode%20me%20passar%20mais%20informa%C3%A7%C3%B5es%20e%20um%20or%C3%A7amento%3F" 
+   class="whatsapp-float" 
+   target="_blank" 
+   title="Falar no WhatsApp">
+  <img src="whatsapp.png">
+</a>
+<div class="whatsapp-label">Fale comigo!</div>
 
-  <main>
+<header>
+  <h1>JPW IA</h1>
+  <p><strong>Automações, Soluções e Inteligência Artificial</strong></p>
+  <p>João Pedro da Silva Wanderley – Especialista em IA | Dados</p>
+</header>
 
-    <section id="servicos">
-      <h2>Serviços</h2>
-      <div class="servico-card">
-        <h3>Chatbot Inteligente para WhatsApp</h3>
-        <p>Desenvolvimento de chatbots integrados ao WhatsApp com IA avançada, capazes de responder automaticamente, captar leads e automatizar processos de atendimento.</p>
-        <p><strong>Exemplo:</strong> Bot que responde dúvidas, registra pedidos e envia notificações automáticas para equipe de vendas.</p>
+<main>
+  
+  <section>
+    <h2>Automações</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Automação LinkedIn</h3>
+        <p>automações o linkedin para aceitar convites, enviar mensagens, fazer comenxões, e comentar em posts.
+          Estrategia que aumento o engajamento e posicionamento no linkedin.  
+        </p>
       </div>
-    </section>
+      <div class="card">
+        <h3>Automação de Envio de Relatórios</h3>
+        <p>Gera relatórios semanais/mensais automaticamente a partir de planilhas, ou bancos de dados, enviando-os por e-mail ou WhatsApp.
+          Muito útil para empresas que precisam acompanhar indicadores sem gastar tempo reunindo dados manualmente.</p>
+      </div>
+    <div class="card">
+      <h3>Captura Automática de Leads de Formulários</h3>
+      <p>Integra Google Forms, ou formulários de site com planilhas.
+        Permite que cada novo cadastro seja automaticamente registrado e notifique a equipe de vendas.</p>
+    </div>
+    <div class="card">
+      <h3>Integração de E-commerce com Planilha de Controle de Estoque</h3>
+      <p>Sincroniza estoque automaticamente entre a loja online e um controle interno no Google Sheets ou Excel.
+        Evita vendas de produtos fora de estoque e melhora a logística.</p>
+    </div>
+  </section>
 
-    <section>
-      <h2>Sobre mim</h2>
-      <p>Sou formado em Ciência da Computação com MBA em Inteligência Artificial e Ciência de Dados. Atuo como Especialista em IA na Nudge e Consciência Digital (NCD), desenvolvendo soluções com foco em automações, análise de dados e agentes inteligentes. Também fundei a JPW IA como marca pessoal para atuar com consultoria e projetos paralelos.</p>
-    </section>
+  <section>
+    <h2>Agentes</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Agente de Atendimento para WhatsApp</h3>
+        <p>Responde dúvidas frequentes, envia links, fornece informações básicas e coleta dados para encaminhar ao atendimento humano.</p>
+      </div>
 
-    <section>
-      <h2>Alguns Projetos</h2>
-      <ul>
-        <li>
-          <strong>Agente de apoio pscologico</strong>: Chatbot integrado ao WhatsApp com IA capaz de fornecer um pre´-diagnostico. 
-          Esse projeto foi desenvolvido em grupo no MBA e está em estagio de evolução.</li>
-  	    <li>
-          <strong>Automação LinkedIn</strong>: Projeto desenvolvido na Nudge e Consciência Digital (NCD), onde implementei uma solução de automação de interações e mensagens via LinkedIn utilizando Python e api do chatgpt. Com funcionalidades de aceitar convite, enviar menssagem, realizar comentarios e fazer conexões, a automação melhorou o engajamento. 
-          <br><em>Por questões contratuais, o código não está público, mas toda a arquitetura e execução foram conduzidas por mim.</em>
-        </li>
-        <li>
-          <strong>Monitoramento de Estoque com Detecção de Risco de Ruptura e Excesso</strong>:
-          Desenvolvi uma solução prática e inteligente para auxiliar empresas na gestão de estoque, com foco na prevenção de rupturas e excessos. 
-          A ferramenta analisa planilhas de vendas e estoque atualizadas, simulando o consumo futuro com base em dados históricos.
-          Uma solução robusta, acessível e com foco direto em resultados. 
-        </li>
-      </ul>
-    </section>
+      <div class="card">
+        <h3>Agente de Suporte Técnico</h3>
+        <p>Atende clientes com instruções passo a passo para resolução de problemas técnicos comuns, reduzindo a carga do time de suporte.</p>
+      </div>
 
-    <section>
-      <h2>Artigos</h2>
+      <div class="card">
+        <h3>Agente de Agendamento</h3>
+        <p>Agenda consultas ou serviços diretamente no Google Calendar ou outro sistema de calendário, otimizando tempo e organização.</p>
+      </div>
+
+      <div class="card">
+        <h3>Agente de Pesquisa de Satisfação</h3>
+        <p>Conduz pesquisas de forma interativa e registra automaticamente os resultados em planilha ou CRM.</p>
+      </div>
+
+      <div class="card">
+        <h3>Agente de Cadastro de Clientes</h3>
+        <p>Coleta informações de novos clientes e registra em banco de dados ou CRM, garantindo mais agilidade e menos erros no processo.</p>
+      </div>
+
+      <div class="card">
+        <h3>Agente para Órgãos Públicos</h3>
+        <p>Auxilia cidadãos com informações sobre serviços, documentos e prazos. Pode redirecionar para links oficiais e emitir protocolos.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Ciência de Dados</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Dashboard de Vendas e Estoque</h3>
+        <p>Painel interativo no Power BI ou Google Data Studio consolidando vendas, estoque e margem de lucro. 
+          Ideal para gestores que querem acompanhar o negócio em tempo real sem abrir várias planilhas.</p>
+      </div>
+
+      <div class="card">
+        <h3>Análise de Perfil de Clientes</h3>
+        <p>Segmentação de clientes com base em idade, localização, ticket médio e frequência de compra. 
+          Permite campanhas de marketing mais assertivas e personalizadas.</p>
+      </div>
+
+      <div class="card">
+        <h3>Previsão de Demanda</h3>
+        <p>Modelo simples que prevê a demanda de produtos para os próximos dias/semanas, ajudando a evitar falta de estoque ou excesso de produtos parados.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre mim -->
+  <section class="sobre">
+    <h2>Sobre mim</h2>
+    <p>Sou formado em Ciência da Computação com MBA em Inteligência Artificial e Ciência de Dados. Atuo como Especialista em IA desenvolvendo soluções com foco em automações, análise de dados e agentes inteligentes.</p>
+    
+    <h2>Artigos</h2>
       <ul>
         <li>
           <strong>JPBOT:</strong> um chatbot para auxiliar no pré-diagnóstico de transtornos psicológicos utilizando processamento de linguagem natural.
@@ -184,21 +254,23 @@
           <a href="https://medium.com/@joaopedrowanderley1/o-avan%C3%A7o-descontrolado-da-intelig%C3%AAncia-artificial-e-seus-impactos-na-sociedade-a10918661de5" target="_blank">Acessar Artigo</a>
         </li>
       </ul>
-    </section>
+  </section>
 
-    <section>
-      <h2>Contato</h2>
-      <p>Email: <a href="mailto:jpwia25@gmail.com">jpwia25@gmail.com</a></p>
-      <div class="social-links">
-        <a href="https://github.com/joaopedrowanderley-ia" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/jo%C3%A3o-pedro-wanderley-4417801b5/" target="_blank">LinkedIn</a>
-      </div>
-    </section>
-  </main>
+  <section class="sobre">
+    <h2>Contato</h2>
+    <p>Email: <a href="mailto:jpwia25@gmail.com">jpwia25@gmail.com</a></p>
+    <div class="social-links">
+      <a href="https://github.com/joaopedrowanderley-ia" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/jo%C3%A3o-pedro-wanderley-4417801b5/" target="_blank">LinkedIn</a>
+    </div>
+  </section> 
 
-  <footer>
-    © 2025 João Pedro da Silva Wanderley — JPW IA
-  </footer>
+
+</main>
+
+<footer>
+  © 2025 João Pedro da Silva Wanderley — JPW IA
+</footer>
 
 </body>
 </html>
